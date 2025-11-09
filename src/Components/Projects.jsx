@@ -1,51 +1,54 @@
 import React, { useRef, useState, useEffect } from 'react'
 
+import { MdArrowOutward } from "react-icons/md";
+
+import image1 from "../assets/Projects__images/Screenshot-coza.png"
+import image2 from "../assets/Projects__images/Screenshot-barber-shoop.png"
+import image3 from "../assets/Projects__images/Screenshoot-restorant.png"
+import image4 from "../assets/Projects__images/Screenshoot-coffee.png"
+import image5 from "../assets/Projects__images/salon-app.png"
+
 export default function Projects() {
   const projects = [
     {
       id: 'proj-1',
-      title: 'Portfolio Website',
-      description: 'A personal portfolio site showcasing projects, blog posts and a contact form.',
+      title: 'Barder Shoop',
+      description: 'A personal website build with Html Css and Javascript.',
       tech: ['React', 'Tailwind CSS', 'Vite'],
-      image: 'https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea?auto=format&fit=crop&w=1400&q=60',
-      dev: { name: 'Parent Dev', avatar: '' },
-      demo: '#'
+      image: image2,
+      demo: 'https://barber-shoop-pro.netlify.app/'
     },
     {
       id: 'proj-2',
       title: 'E‑Commerce Demo',
       description: 'A small e-commerce demo with product listing, cart and checkout flow.',
-      tech: ['React', 'Node.js', 'Stripe'],
-      image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=60',
-      dev: { name: 'Child Dev', avatar: '' },
-      demo: '#'
+      tech: ['React', 'Vite', 'Tailwind CSS'],
+      image: image1,
+      demo: 'https://coza-site.netlify.app/'
     },
     {
       id: 'proj-3',
-      title: 'Chat App',
-      description: 'Real-time chat app with rooms and presence indicators.',
-      tech: ['Socket.IO', 'Express', 'React'],
-      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=60',
-      dev: { name: 'Another Dev', avatar: '' },
-      demo: '#'
+      title: 'Restorant App',
+      description: 'A Restorant website build with React, and Tailwind CSS. Menu and Reservation features.',
+      tech: ['Tailwind CSS', 'Vite', 'React'],
+      image: image3,
+      demo: 'https://reso-website.netlify.app/'
     },
     {
       id: 'proj-3',
-      title: 'Chat App',
-      description: 'Real-time chat app with rooms and presence indicators.',
-      tech: ['Socket.IO', 'Express', 'React'],
-      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=60',
-      dev: { name: 'Another Dev', avatar: '' },
-      demo: '#'
+      title: 'Coffee Shop',
+      description: 'Coffee Shop website build with React, and Tailwind CSS. Menu and Reservation features.',
+      tech: ['React ', 'Tailwind CSS', 'Vite'],
+      image: image4,
+      demo: 'https://coffee-house-app.netlify.app/'
     },
     {
       id: 'proj-3',
-      title: 'Chat App',
-      description: 'Real-time chat app with rooms and presence indicators.',
-      tech: ['Socket.IO', 'Express', 'React'],
-      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=60',
-      dev: { name: 'Another Dev', avatar: '' },
-      demo: '#'
+      title: 'Luxe Beauty Salon',
+      description: 'A Beauty Salon website build with React, and Tailwind CSS. Services and Booking features.',
+      tech: ['Tailwind CSS', 'Vite', 'React'],
+      image: image5,
+      demo: 'https://salon-woman.netlify.app/'
     }
   ]
 
@@ -180,8 +183,17 @@ export default function Projects() {
               >
                 <div className="h-40 bg-cover bg-center" style={{ backgroundImage: `url(${p.image})` }} />
                 <div className="p-4">
-                  <h3 className="text-xl font-semibold">{p.title}</h3>
-                  <p className="mt-2 text-sm text-slate-600">{p.description}</p>
+                  <div className="mt-4 flex items-center justify-between">
+                    <h3 className="text-xl font-semibold">{p.title}</h3>
+                    <a href={p.demo} className="inline-flex items-center px-3 py-2 bg-[#92b115ee] text-white rounded-md text-sm font-medium hover:bg-[#71822bee]">
+                      <span
+                      >
+                        Demo
+                      </span>
+                      <MdArrowOutward className="ml-1"/>
+                    </a>
+                  </div>
+                  <p className="my-4 text-sm text-slate-600">{p.description}</p>
 
                   <div className="mt-3 flex flex-wrap gap-2">
                     {p.tech.map((t) => (
@@ -189,25 +201,6 @@ export default function Projects() {
                         {t}
                       </span>
                     ))}
-                  </div>
-
-                  <div className="mt-4 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[#92b115ee] flex items-center justify-center text-white font-bold">
-                        {p.dev.name.split(' ').map(s=>s[0]).slice(0,2).join('')}
-                      </div>
-                      <div>
-                        <div className="text-sm font-medium">{p.dev.name}</div>
-                        <div className="text-xs text-slate-500">Lead developer</div>
-                      </div>
-                    </div>
-
-                    <a
-                      href={p.demo}
-                      className="inline-flex items-center px-3 py-2 bg-[#92b115ee] text-white rounded-md text-sm font-medium hover:bg-[#71822bee]"
-                    >
-                      Demo
-                    </a>
                   </div>
                 </div>
               </article>

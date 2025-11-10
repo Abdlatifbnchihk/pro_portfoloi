@@ -2,7 +2,7 @@ import React from 'react'
 import { LuDownload } from "react-icons/lu";
 
 // import  from '../assets/About__page.jpg'
-import ProfileImage from '../assets/About__page.jpg'
+import ProfileImage from '../assets/about__page.jpg'
 
    
 

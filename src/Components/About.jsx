@@ -1,7 +1,9 @@
 import React from 'react'
 import { LuDownload } from "react-icons/lu";
 
-import ProfileImage from './../assets/About__page.jpg'
+// import  from '../assets/About__page.jpg'
+import ProfileImage from '../assets/About__page.jpg'
+
    
 
 export default function About() {

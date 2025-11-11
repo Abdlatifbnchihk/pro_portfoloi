@@ -19,7 +19,7 @@ export default function Skills() {
   return (
     <section id="skills" className="bg-white text-slate-800 py-16 lg:pt-25 h-auto">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 text-center">
+        <div className="mb-8 text-center" data-aos="fade-down">
           <h2 className="text-3xl font-extrabold">Skills</h2>
           <p className="mt-2 text-slate-600">Technologies and tools I use to build web applications.</p>
         </div>
@@ -27,7 +27,7 @@ export default function Skills() {
         <div className='w-full'>
             <div className="flex flex-col lg:flex-row gap-6">
                 <div className='w-full lg:w-[50%]'>
-                    <div className='flex justify-center'>
+                    <div className='flex justify-center' data-aos="fade-down">
                         <div className="flex items-center gap-3">
                         <PiBracketsCurly className="w-10 h-10 text-[#92b115ee] mb-4" />
                             <div className="text-lg font-medium mb-2">
@@ -38,7 +38,7 @@ export default function Skills() {
                         </div>
                     </div>    
                 {displaySkills ? skills.map((s) => (
-                    <div key={s.name}>
+                    <div key={s.name} data-aos="fade-down">
                         <div className='mb-3'>
                             <h2>{s.name}</h2>
                             <div className="mt-3 h-2 w-full bg-[#92b115ee] rounded-full opacity-50"></div>
@@ -46,7 +46,7 @@ export default function Skills() {
                     </div>
                 )) : null}
                 </div>
-                <div className='w-full lg:w-[50%]'>
+                <div className='w-full lg:w-[50%]' data-aos="fade-down">
                     <div className='flex justify-center'>
                         <div className="flex items-center gap-3">
                         <IoColorPaletteOutline className="w-10 h-10 text-[#92b115ee] mb-4" />
@@ -57,9 +57,17 @@ export default function Skills() {
                             <button onClick={() => setDisplaySkillsFre(!displaySkillsFre)}>{displaySkillsFre ? <MdKeyboardArrowUp className='text-3xl cursor-pointer transition hover:rotate-180'/> : <MdOutlineKeyboardArrowDown className='text-3xl cursor-pointer transition hover:rotate-180'/>}</button>
                         </div>
                     </div>    
-                    {displaySkillsFre ? (<div >
+                    {displaySkillsFre ? (<div data-aos="fade-down">
                         <div className='mb-3'>
                             <h2>Tailwind CSS</h2>
+                            <div className="mt-3 h-2 w-full bg-[#92b115ee] rounded-full opacity-50"></div>
+                        </div>
+                        <div className='mb-3'>
+                            <h2>Bootstrap</h2>
+                            <div className="mt-3 h-2 w-full bg-[#92b115ee] rounded-full opacity-50"></div>
+                        </div>
+                        <div className='mb-3'>
+                            <h2>Matrial UI</h2>
                             <div className="mt-3 h-2 w-full bg-[#92b115ee] rounded-full opacity-50"></div>
                         </div>
                     </div>) : null}

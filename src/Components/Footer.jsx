@@ -4,7 +4,7 @@ import { FaFacebook, FaSquareInstagram } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-slate-200 h-[30vh]">
+    <footer className="bg-white border-t border-slate-200 sm:h-[20vh] h-[25vh]" data-aos="zoom-in">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col justify-between h-full">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">

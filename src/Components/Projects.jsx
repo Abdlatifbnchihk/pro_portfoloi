@@ -11,7 +11,7 @@ import image5 from "../assets/Projects__images/salon-app.png"
 export default function Projects() {
   const projects = [
     {
-      id: 'proj-1',
+      id: 1,
       title: 'Barder Shoop',
       description: 'A personal website build with Html Css and Javascript.',
       tech: ['React', 'Tailwind CSS', 'Vite'],
@@ -19,7 +19,7 @@ export default function Projects() {
       demo: 'https://barber-shoop-pro.netlify.app/'
     },
     {
-      id: 'proj-2',
+      id: 2,
       title: 'E‑Commerce Demo',
       description: 'A small e-commerce demo with product listing, cart and checkout flow.',
       tech: ['React', 'Vite', 'Tailwind CSS'],
@@ -27,7 +27,7 @@ export default function Projects() {
       demo: 'https://coza-site.netlify.app/'
     },
     {
-      id: 'proj-3',
+      id: 3,
       title: 'Restorant App',
       description: 'A Restorant website build with React, and Tailwind CSS. Menu and Reservation features.',
       tech: ['Tailwind CSS', 'Vite', 'React'],
@@ -35,7 +35,7 @@ export default function Projects() {
       demo: 'https://reso-website.netlify.app/'
     },
     {
-      id: 'proj-3',
+      id: 4,
       title: 'Coffee Shop',
       description: 'Coffee Shop website build with React, and Tailwind CSS. Menu and Reservation features.',
       tech: ['React ', 'Tailwind CSS', 'Vite'],
@@ -43,7 +43,7 @@ export default function Projects() {
       demo: 'https://coffee-house-app.netlify.app/'
     },
     {
-      id: 'proj-3',
+      id: 5,
       title: 'Luxe Beauty Salon',
       description: 'A Beauty Salon website build with React, and Tailwind CSS. Services and Booking features.',
       tech: ['Tailwind CSS', 'Vite', 'React'],
@@ -58,15 +58,27 @@ export default function Projects() {
   const pausedRef = useRef(false)
   // keep a ref to the current index for stable access inside intervals
   const currentIndexRef = useRef(index)
+  const isManualScrollRef = useRef(false);
 
   useEffect(() => {
     currentIndexRef.current = index
   }, [index])
 
   useEffect(() => {
+    const interval = setInterval(() => {
+      if (pausedRef.current) return;
+      const next = (currentIndexRef.current + 1) % projects.length;
+      scrollToIndex(next);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [projects.length]);
+
+
+  useEffect(() => {
     const el = containerRef.current
     if (!el) return
     const onScroll = () => {
+      if (isManualScrollRef.current) return;
       const children = Array.from(el.children)
       const widths = children.map((c) => c.getBoundingClientRect().left - el.getBoundingClientRect().left)
       // Find the child with smallest absolute left offset
@@ -101,11 +113,20 @@ export default function Projects() {
   const scrollToIndex = (i) => {
     const el = containerRef.current
     if (!el) return
+
+    isManualScrollRef.current = true; // 👈 stop onScroll from overriding index
+    currentIndexRef.current = i;      // 👈 sync with autoplay
+    setIndex(i);
+
     const cardWidth = el.children[0]?.getBoundingClientRect().width || el.clientWidth
     // Use the child's offsetLeft so gaps/margins are correctly accounted for
     const child = el.children[i]
     const left = child ? child.offsetLeft : cardWidth * i
     el.scrollTo({ left, behavior: 'smooth' })
+
+    setTimeout(() => {
+      isManualScrollRef.current = false;
+    }, 500);
   }
 
   // Autoplay: advance slides every 4s, pause on hover/focus
@@ -137,11 +158,11 @@ export default function Projects() {
     <section id="projects" className="py-16 bg-slate-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-6">
-          <div>
+          <div data-aos="fade-right">
             <h2 className="text-3xl font-extrabold">Projects</h2>
             <p className="text-slate-600 py-5">Selected projects I built — swipe or use arrows to browse.</p>
           </div>
-          <div className="hidden sm:flex gap-2">
+          <div className="hidden sm:flex gap-2" data-aos="fade-right">
             <button
               onClick={() => scrollTo('prev')}
               aria-label="Previous project"
@@ -159,7 +180,7 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="relative">
+        <div className="relative" data-aos="fade-left">
           {/* hide native scrollbar for the projects scroller and keep touch scrolling */}
             <style>{`.projects-scroll{ -ms-overflow-style: none; scrollbar-width: none; }
             .projects-scroll::-webkit-scrollbar{ display: none; }
@@ -213,7 +234,7 @@ export default function Projects() {
               <button
                 key={i}
                 onClick={() => scrollToIndex(i)}
-                className={`w-3 h-3 rounded-full ${i === index ? 'bg-[#92b115ee]' : 'bg-slate-300'}`}
+                className={`w-3 h-3 rounded-full cursor-pointer ${i === index ? 'bg-[#92b115ee]' : 'bg-slate-300'}`}
                 aria-label={`Go to project ${i + 1}`}
               />
             ))}

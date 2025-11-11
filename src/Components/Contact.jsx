@@ -15,7 +15,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="text-3xl font-extrabold">Contact Me</h2>
           <p className="mt-4 text-lg text-slate-600">Have a project in mind? Let's work together!</p>
         </div>
@@ -23,12 +23,12 @@ export default function Contact() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
           {/* Contact Info & Socials */}
-          <div className="flex flex-col justify-between items-center">
+          <div className="flex flex-col justify-between items-center" data-aos="fade-right">
             <div className="space-y-6">
               <div>
                 <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
                 <div className="space-y-6">
-                  <p className="flex items-center text-slate-600">
+                  <div className="flex items-center text-slate-600">
                     <span className="mr-3"><FaPhoneAlt className='text-[#92b115ee] text-xl' /></span>
                     <div>
                         <h3>
@@ -36,8 +36,8 @@ export default function Contact() {
                         </h3>
                         <span className='text-[13px]'> +212 621872954 </span>
                     </div>
-                  </p>
-                  <p className="flex items-center text-slate-600">
+                  </div>
+                  <div className="flex items-center text-slate-600">
                     <span className="mr-3"><MdEmail className='text-[#92b115ee] text-xl' /></span>
                     <div>
                         <h3 href="tel:+1234567890" className="">
@@ -45,20 +45,20 @@ export default function Contact() {
                         </h3>
                         <span className='text-[13px]'>abdellatifbencheikh43@gmail.com</span>
                     </div>
-                  </p>
-                  <p className="flex items-center text-slate-600">
+                  </div>
+                  <div className="flex items-center text-slate-600">
                     <span className="mr-3"><FaLocationDot className='text-[#92b115ee] text-xl' /></span>
                     <div>
                         <h3>Location</h3>
                         <span className='text-[13px]'>Morocco - Agadir</span>
                     </div>
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           {/* Contact Form */}
-          <div className="bg-slate-50 rounded-xl p-6 shadow-sm">
+          <div className="bg-slate-50 rounded-xl p-6 shadow-sm" data-aos="fade-left">
             <form action="https://formspree.io/f/xqawznwd" method='POST' className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-slate-700">

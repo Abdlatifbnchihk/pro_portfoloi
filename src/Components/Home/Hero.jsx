@@ -36,7 +36,7 @@ function Hero() {
               user experiences.
             </p>
 
-            <div className="mt-8">
+            <div className="inline-block mt-8">
               <a
                 href="#contact"
                 className="flex items-center justify-center md:justify-start gap-2 bg-[#92b115ee] text-white px-6 py-3 rounded-md shadow hover:bg-[#71822bee] transition"

@@ -90,9 +90,11 @@ export default function Home() {
       )}
 
       {/* === Foreground content === */}
-      <div className="relative z-20 text-white flex-1 flex flex-col h-screen ">
+      <div className="relative z-20 text-white flex-1 h-screen flex flex-col min-h-[85vh] md:min-h-screen overflow-hidden w-full">
         <Header />
-        <Hero />
+        <div className="overflow-hidden w-full">
+          <Hero />
+        </div>
       </div>
     </div>
   );

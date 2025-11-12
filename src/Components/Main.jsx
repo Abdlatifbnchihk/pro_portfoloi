@@ -40,7 +40,9 @@ function Main() {
       <Projects />
       <Contact />
       <Footer />
-      {displayScrollBttn && <ScroollToTopBttn />}
+      <div className="absolute bottom-0 right-[10]">
+        {displayScrollBttn && <ScroollToTopBttn />}
+      </div>  
     </div>
   )
 }

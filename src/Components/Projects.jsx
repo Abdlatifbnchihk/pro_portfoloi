@@ -162,7 +162,7 @@ export default function Projects() {
             <h2 className="text-3xl font-extrabold">Projects</h2>
             <p className="text-slate-600 py-5">Selected projects I built — swipe or use arrows to browse.</p>
           </div>
-          <div className="hidden sm:flex gap-2" data-aos="fade-right">
+          <div className="hidden sm:flex gap-2" >
             <button
               onClick={() => scrollTo('prev')}
               aria-label="Previous project"
@@ -180,7 +180,7 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="relative" data-aos="fade-left">
+        <div className="relative">
           {/* hide native scrollbar for the projects scroller and keep touch scrolling */}
             <style>{`.projects-scroll{ -ms-overflow-style: none; scrollbar-width: none; }
             .projects-scroll::-webkit-scrollbar{ display: none; }
@@ -188,7 +188,7 @@ export default function Projects() {
             `}</style>
           <div
             ref={containerRef}
-            className="projects-scroll flex gap-6 overflow-x-auto pb-4 scroll-pl-4 snap-x snap-mandatory touch-pan-x"
+            className="projects-scroll flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory touch-pan-x scrollbar-hide"
             style={{ scrollBehavior: 'smooth', WebkitOverflowScrolling: 'touch' }}
             onMouseEnter={() => (pausedRef.current = true)}
             onMouseLeave={() => (pausedRef.current = false)}

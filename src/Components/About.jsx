@@ -15,14 +15,14 @@ export default function About() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl text-center font-extrabold text-black mb-8" data-aos="fade-down">About Me</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 items-start md:items-center gap-10">
-            <div className="w-full sm:w-1/3 md:w-5/6" data-aos="fade-right">
+            <div className="w-full sm:w-1/3 md:w-5/6">
               <img
                 src={ProfileImage}
                 alt="Profile"
                 className="w-full h-auto rounded-md shadow-lg"
               />
             </div>
-          <div className="flex-1" data-aos="fade-left">
+          <div className="flex-1" >
             <p className="text-slate-500 max-w-2xl">
               I'm a Frontend developer focused on building fast, accessible, and beautiful web
               experiences. I enjoy turning ideas into functional interfaces using modern tools

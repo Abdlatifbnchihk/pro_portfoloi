@@ -31,7 +31,10 @@ function Header() {
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect()
         const offsetTop = rect.top + window.scrollY - 100
-        if (window.scrollY >= offsetTop && window.scrollY < offsetTop + section.offsetHeight) {
+        if (
+          window.scrollY >= offsetTop &&
+          window.scrollY < offsetTop + section.offsetHeight
+        ) {
           current = `#${section.id}`
         }
       })
@@ -57,16 +60,18 @@ function Header() {
 
   return (
     <header
-      className={`w-full backdrop-blur-md fixed top-0 z-50 transition-all duration-200 ${
+      className={`fixed top-0 left-0 w-full z-50 overflow-x-hidden backdrop-blur-md transition-all duration-200 ${
         isScrolled ? 'shadow-md bg-white/80' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="w-full max-w-3xl sm:max-w-6xl mx-auto px-3 sm:px-4 lg:px-8 overflow-x-hidden">
+        <div className="flex items-center justify-between h-16 overflow-hidden">
           {/* Logo */}
-          <div className="shrink-0">
-            <a href="#">
-              <span className="font-semibold text-lg text-[#92b115ee]">A.Ben Cheikh</span>
+          <div className="shrink-0 min-w-0">
+            <a href="#" className="block max-w-full truncate">
+              <span className="font-semibold text-base sm:text-lg text-[#92b115ee]">
+                A.Ben Cheikh
+              </span>
             </a>
           </div>
 
@@ -80,7 +85,7 @@ function Header() {
                 className={`transition-colors duration-150 ${
                   active === link.href
                     ? 'text-[#92b115ee] font-semibold'
-                    : 'text-slate-700 hover:text-[#9ba95fee]'
+              : 'text-slate-700 hover:text-[#9ba95fee]'
                 }`}
               >
                 {link.name}
@@ -89,7 +94,7 @@ function Header() {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex md:items-center md:space-x-4">
+          <div className="hidden md:flex md:items-center md:space-x-4 flex-shrink-0">
             <a
               href="#contact"
               className="inline-flex items-center px-4 py-2 bg-[#92b115ee] text-white rounded-md text-sm font-medium hover:bg-[#71822bee] transition"
@@ -139,7 +144,7 @@ function Header() {
             : 'max-h-0 opacity-0 scale-y-0 pointer-events-none'
         }`}
       >
-        <div className="px-4 pt-4 pb-4 space-y-2">
+        <div className=" px-3 sm:px-4 pt-4 pb-4 space-y-2 overflow-x-hidden">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -171,3 +176,4 @@ function Header() {
 }
 
 export default Header
+
